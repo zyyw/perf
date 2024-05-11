@@ -44,7 +44,7 @@ export default function () {
 
     try {
         if (settings['AutoSbomGen'] === "true") {
-            harbor.createProject({ projectName: `${settings.ProjectPrefix}-${suffix}`, metadata: `{"auto_sbom_generation": "true"}` })
+            harbor.createProject({ projectName: `${settings.ProjectPrefix}-${suffix}`, metadata: `{"autoSbomGeneration": "true"}` })
         } else {
             harbor.createProject({ projectName: `${settings.ProjectPrefix}-${suffix}` })
         }
