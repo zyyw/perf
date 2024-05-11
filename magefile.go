@@ -189,8 +189,9 @@ func installK6() error {
 	}
 	defer os.RemoveAll(tmp)
 
-	repoUrl := "https://github.com/goharbor/xk6-harbor.git"
-	err = shx.Command("git", "clone", repoUrl).CollapseArgs().In(tmp).RunE()
+	//repoUrl := "https://github.com/goharbor/xk6-harbor.git"
+	repoUrl := "https://github.com/zyyw/xk6-harbor.git"
+	err = shx.Command("git", "clone", "-b", "update-swagger", repoUrl).CollapseArgs().In(tmp).RunE()
 	if err != nil {
 		return errors.Wrapf(err, "could not clone %s", repoUrl)
 	}

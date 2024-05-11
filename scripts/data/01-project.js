@@ -42,13 +42,10 @@ export function setup() {
 export default function () {
     const suffix = numberToPadString(counter.up(), settings.ProjectsCount)
 
-    console.log("AutoSbomGen = " + settings['AutoSbomGen'])
     try {
         if (settings['AutoSbomGen'] === "true") {
-            console.log("settings['AutoSbomGen'] is true")
             harbor.createProject({ projectName: `${settings.ProjectPrefix}-${suffix}`, metadata: `{"auto_sbom_generation": "true"}` })
         } else {
-            console.log("settings['AutoSbomGen'] is NOT true")
             harbor.createProject({ projectName: `${settings.ProjectPrefix}-${suffix}` })
         }
         successRate.add(true)
