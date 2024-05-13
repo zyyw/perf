@@ -43,10 +43,12 @@ export default function () {
     const suffix = numberToPadString(counter.up(), settings.ProjectsCount)
 
     try {
+        console.log("111", settings['AutoSbomGen'])
         if (settings['AutoSbomGen'] === "true") {
             const metadataValue = {
                 autoSbomGeneration: settings['AutoSbomGen']
             }
+            console.log("222", settings['AutoSbomGen'])
             harbor.createProject({ projectName: `${settings.ProjectPrefix}-${suffix}`, metadata: metadataValue })
         } else {
             harbor.createProject({ projectName: `${settings.ProjectPrefix}-${suffix}` })
