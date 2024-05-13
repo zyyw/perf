@@ -31,6 +31,7 @@ const harbor = new Harbor(settings.Harbor);
 export function setup() {
     try {
         harbor.deleteProject('library')
+        console.log("FakeScannerURL: ", settings['FakeScannerURL'])
         if (settings['FakeScannerURL'] !== '') {
             harbor.setScannerAsDefault(harbor.createScanner({ name: `fake-scanner-${Date.now()}`, url: settings.FakeScannerURL }))
         }
